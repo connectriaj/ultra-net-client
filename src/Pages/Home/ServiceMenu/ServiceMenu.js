@@ -1,55 +1,30 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
+import { Link } from "react-router-dom";
 
-const ServiceMenu = () => {
+const ServiceMenu = ({ service }) => {
+  const { title, img, price, rating, description } = service;
+
   return (
-    <div className="w-75 mx-auto">
-      <CardGroup>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      </CardGroup>
+    <div className="col">
+      <Card>
+        <Card.Img variant="top" style={{ height: "250px" }} src={img} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{description}</Card.Text>
+        </Card.Body>
+        <div className="d-flex justify-content-between mt-4">
+          <div className="ms-3 mb-3">
+            <h5>Price: ${price}</h5>
+            <h6>Rating: {rating}</h6>
+          </div>
+          <div className="me-3">
+            <Link to="/services">
+              <button className="btn btn-primary px-4">Show More</button>
+            </Link>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 };

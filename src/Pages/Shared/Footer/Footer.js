@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <p>this is footer</p>
+            <p className='text-center mt-5 fw-bold '><small>Copyright Ultra Net 2022 | All Right Reserved</small></p>
         </div>
     );
 };
