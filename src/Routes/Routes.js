@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import Login from "../authentication/Login/Login";
+import SignUp from "../authentication/SignUp/SignUp.js";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import About from "../Pages/Home/About/About";
 import Home from "../Pages/Home/Home/Home";
-import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
-import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +22,14 @@ const router = createBrowserRouter([
         element: <Services></Services>,
       },
       {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
         path: "/login",
         element: <Login></Login>,
       },
-      {
-        path: "signup",
-        element: <SignUp></SignUp>,
-      },
+
       {
         path: "/blog",
         element: <Blog></Blog>,
