@@ -4,6 +4,7 @@ import SignUp from "../authentication/SignUp/SignUp.js";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import About from "../Pages/Home/About/About";
 import Home from "../Pages/Home/Home/Home";
 import Orders from "../Pages/Orders/Orders";
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <Orders></Orders>,
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },

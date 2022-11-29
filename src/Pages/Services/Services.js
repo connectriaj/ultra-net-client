@@ -16,7 +16,9 @@ const Services = () => {
     <div>
       <h1 className="text-center mt-5 fw-bold">Services</h1>
       {services.map((service) => (
-        <div key={service._id} service={service}>
+        <div key={service._id} service={service}
+                 
+        >
           <div className="row">
             <div className="container col-8 my-4">
               <Card className="">

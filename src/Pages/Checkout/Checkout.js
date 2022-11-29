@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../components/contexts/AuthProvider";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
@@ -104,7 +104,10 @@ const Checkout = () => {
 
         {/* comment box start from here */}
         <div className="my-3">
-          <FloatingLabel controlId="floatingTextarea2" label="Write here your review">
+          <FloatingLabel
+            controlId="floatingTextarea2"
+            label="Write here your review"
+          >
             <Form.Control
               as="textarea"
               name="message"
@@ -115,7 +118,7 @@ const Checkout = () => {
           </FloatingLabel>
         </div>
 
-        <Button className="w-100" variant="primary" type="submit">
+        <Button className="w-100 mt-3" variant="primary" type="submit">
           Submit Your Review
         </Button>
       </Form>
