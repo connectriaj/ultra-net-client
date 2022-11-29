@@ -27,7 +27,7 @@ const ServiceDetails = () => {
         Service Details and Customer Reviews
       </h1>
       <div className="row">
-        <div className="col mx-5 border border-2">
+        <div className="col-12 mx-5 border border-2">
           <h2 className="text-center text-decoration-underline py-3">
             Service Details
           </h2>
@@ -45,10 +45,16 @@ const ServiceDetails = () => {
             <p>
               <small className="fw-bold">Price: ${price}</small>
             </p>
-          </div>
+                  </div>
+                  
+              </div>
+              <div className="px-5 ms-5 mt-4">
+          <Link to={`/checkout/${_id}`}>
+            <button className="btn btn-success w-100">Add a review</button>
+          </Link>
         </div>
 
-        <div className="col mx-5 border border-2">
+        <div className="col12 my-5 rounded mx-5 border border-2">
           <h4 className="text-center text-decoration-underline py-3">
             Customer Reviews
           </h4>
@@ -75,11 +81,7 @@ const ServiceDetails = () => {
             </div>
           ))}
         </div>
-        <div className="px-5 mt-4">
-          <Link to={`/checkout/${_id}`}>
-            <button className="btn btn-success w-100">Add a review</button>
-          </Link>
-        </div>
+        
       </div>
     </div>
   );

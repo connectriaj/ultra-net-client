@@ -14,8 +14,9 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    console.log("clicked");
 
-    createUser(email, password)
+    createUser(email, password, name)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -75,11 +76,9 @@ const SignUp = () => {
           <Link to="/login"> Please Login</Link>
         </p>
 
-        <Link to="/login">
-          <Button className="px-4" variant="primary" type="submit">
-            Sign Up
-          </Button>
-        </Link>
+        <Button className="px-4 w-100" variant="primary" type="submit">
+          Sign Up
+        </Button>
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>

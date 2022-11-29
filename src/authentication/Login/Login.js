@@ -24,7 +24,6 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });
@@ -41,7 +40,6 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         navigate(from, { replace: true });
-        console.log(user);
       })
       .catch((err) => console.error(err));
   };
@@ -74,19 +72,16 @@ const Login = () => {
           <Link to="/signup"> Please Register</Link>
         </p>
 
-        <Link to="/">
-          <Button className="px-4" variant="primary" type="submit">
-            Login
-          </Button>
-        </Link>
+        <Button className="px-4" variant="primary" type="submit">
+          Login
+        </Button>
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>
-        <Link to='/'>
-          <button onClick={handleGoogleSignIn} className="btn btn-danger">
-            Google Login
-          </button>
-        </Link>
+
+        <button onClick={handleGoogleSignIn} className="btn btn-danger">
+          Google Login
+        </button>
       </div>
     </div>
   );

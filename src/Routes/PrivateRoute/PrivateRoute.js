@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../components/contexts/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
@@ -13,7 +13,17 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate state={{ from: location }} replace></Navigate>;
+    return (
+      <div>
+        <Navigate state={{ from: location }} replace></Navigate>
+            <h1 className="text-center my-5">Please Login First</h1>
+            <div className="text-center">
+                <Link to='/login'>
+                    <button className="btn btn-primary px-4">go to login</button>
+                </Link>
+            </div>
+      </div>
+    );
 };
 
 export default PrivateRoute;

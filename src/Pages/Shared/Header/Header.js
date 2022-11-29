@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../components/contexts/AuthProvider";
 
@@ -70,6 +71,10 @@ const Header = () => {
                   Sign Up
                 </Link>
               )}
+
+              <Link to="/" className="text-primary fw-bold text-decoration-none mx-2">
+                {user?.email ? <p>{user.email}</p> : <p> <FaUser></FaUser> </p>}
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
