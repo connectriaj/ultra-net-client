@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-
+import useTitle from "../../Hooks/useTitle";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  useTitle("Services");
 
   useEffect(() => {
     fetch(`http://localhost:5000/all-services`)
@@ -16,9 +17,7 @@ const Services = () => {
     <div>
       <h1 className="text-center mt-5 fw-bold">Services</h1>
       {services.map((service) => (
-        <div key={service._id} service={service}
-                 
-        >
+        <div key={service._id} service={service}>
           <div className="row">
             <div className="container col-8 my-4">
               <Card className="">

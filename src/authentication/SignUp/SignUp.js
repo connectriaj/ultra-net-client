@@ -3,10 +3,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../components/contexts/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const SignUp = () => {
   const [error, setError] = useState("");
   const { createUser, googleLogin } = useContext(AuthContext);
+
+  useTitle("SignUp");
 
   const handleRegister = (event) => {
     event.preventDefault();

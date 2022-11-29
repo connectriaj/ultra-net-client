@@ -1,7 +1,9 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import useTitle from "../../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div>
       <Card className="w-75 mx-auto my-5">
