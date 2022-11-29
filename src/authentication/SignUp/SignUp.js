@@ -1,4 +1,3 @@
-import { GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -16,17 +15,15 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    createUser(email, password, name)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // handleUpdateUserProfile(name, photoURL);
       })
       .catch((error) => console.error(error));
     form.reset();
   };
 
-  const googleProvider = new GoogleAuthProvider();
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
@@ -78,13 +75,15 @@ const SignUp = () => {
           <Link to="/login"> Please Login</Link>
         </p>
 
-        <Button className="px-4" variant="primary" type="submit">
-          Sign Up
-        </Button>
+        <Link to="/login">
+          <Button className="px-4" variant="primary" type="submit">
+            Sign Up
+          </Button>
+        </Link>
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>
-        <Link to="/checkout" onClick={handleGoogleLogin}>
+        <Link to="/login" onClick={handleGoogleLogin}>
           <button className="btn btn-danger">Google Login</button>
         </Link>
       </div>

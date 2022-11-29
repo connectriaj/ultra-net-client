@@ -36,10 +36,11 @@ const Login = () => {
     form.reset();
   };
 
-  const hanldeGoogleSignIn = () => {
+  const handleGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((err) => console.error(err));
@@ -73,7 +74,7 @@ const Login = () => {
           <Link to="/signup"> Please Register</Link>
         </p>
 
-        <Link to="">
+        <Link to="/">
           <Button className="px-4" variant="primary" type="submit">
             Login
           </Button>
@@ -81,8 +82,8 @@ const Login = () => {
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>
-        <Link to="/checkout">
-          <button onClick={hanldeGoogleSignIn} className="btn btn-danger">
+        <Link to='/'>
+          <button onClick={handleGoogleSignIn} className="btn btn-danger">
             Google Login
           </button>
         </Link>

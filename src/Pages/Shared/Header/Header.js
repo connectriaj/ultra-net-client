@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../components/contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -35,12 +37,39 @@ const Header = () => {
               </Link>
             </Nav>
             <Nav className="me-auto">
-              <Link className="text-decoration-none fw-bold me-4" to="/login">
-                Login
-              </Link>
-              <Link className="text-decoration-none fw-bold me-4" to="/signup">
-                Sign Up
-              </Link>
+              {user?.email ? (
+                <>
+                  <Link
+                    className="text-decoration-none fw-bold me-4"
+                    to="/orders"
+                  >
+                    Orders
+                  </Link>
+                </>
+              ) : (
+                <Link className="text-decoration-none fw-bold me-4" to="/login">
+                  Login
+                </Link>
+              )}
+
+              {user?.email ? (
+                <>
+                  <Link
+                    onClick={logOut}
+                    className="text-primary fw-bold text-decoration-none mx-2"
+                    to="/"
+                  >
+                    Logout
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  className="text-primary fw-bold text-decoration-none mx-2"
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

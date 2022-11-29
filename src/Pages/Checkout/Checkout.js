@@ -47,7 +47,7 @@ const Checkout = () => {
   return (
     <div className="container w-50">
       <h2 className="text-center my-5 text-decoration-underline">
-        Checkout page
+        Please add your review
       </h2>
       <Form
         onSubmit={handlePlaceOrder}
@@ -104,7 +104,7 @@ const Checkout = () => {
 
         {/* comment box start from here */}
         <div className="my-3">
-          <FloatingLabel controlId="floatingTextarea2" label="Write here">
+          <FloatingLabel controlId="floatingTextarea2" label="Write here your review">
             <Form.Control
               as="textarea"
               name="message"
@@ -116,7 +116,7 @@ const Checkout = () => {
         </div>
 
         <Button className="w-100" variant="primary" type="submit">
-          Place Your Order
+          Submit Your Review
         </Button>
       </Form>
     </div>

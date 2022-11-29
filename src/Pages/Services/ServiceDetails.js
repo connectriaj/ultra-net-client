@@ -1,9 +1,26 @@
-import React from "react";
+import { useContext, useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../components/contexts/AuthProvider";
 
 const ServiceDetails = () => {
-  const { _id, title, img, description, price } = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const [orders, setOrders] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/orders`)
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, [user?.email]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/orders?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, [user?.email]);
+
+  const { _id, title, img, description, price } = useLoaderData();
   return (
     <div className="container">
       <h1 className="text-center my-5 text-decoration-underline">
@@ -15,9 +32,9 @@ const ServiceDetails = () => {
             Service Details
           </h2>
           <div className="p-3">
-                      <img
-                          className="mb-4"
-              style={({ height: "200px", width: '100%' })}
+            <img
+              className="mb-4"
+              style={{ height: "200px", width: "100%" }}
               src={img}
               alt="img"
             />
@@ -28,15 +45,40 @@ const ServiceDetails = () => {
             <p>
               <small className="fw-bold">Price: ${price}</small>
             </p>
-            <Link to={`/checkout/${_id}`}>
-              <button className="btn btn-primary px-4">Checkout Now</button>
-            </Link>
           </div>
         </div>
+
         <div className="col mx-5 border border-2">
           <h4 className="text-center text-decoration-underline py-3">
-            Your Reviews
+            Customer Reviews
           </h4>
+          {reviews.map((review) => (
+            <div key={review.service} review={review}>
+              <div className="my-3 p-3 border ">
+                <img src={user?.img} alt="" />
+                <p>{review.customer}</p>
+                <small>{review.message}</small>
+              </div>
+            </div>
+          ))}
+          {orders.map((order) => (
+            <div>
+              {user?.email ? (
+                <div></div>
+              ) : (
+                <div className="my-3 p-3 border ">
+                  <img src={user?.img} alt="" />
+                  <p>{order.customer}</p>
+                  <small>{order.message}</small>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="px-5 mt-4">
+          <Link to={`/checkout/${_id}`}>
+            <button className="btn btn-success w-100">Add a review</button>
+          </Link>
         </div>
       </div>
     </div>
