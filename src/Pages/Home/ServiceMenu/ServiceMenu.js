@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceMenu = ({ service }) => {
   const { title, img, price, rating, description } = service;
@@ -8,7 +10,12 @@ const ServiceMenu = ({ service }) => {
   return (
     <div className="col">
       <Card>
-        <Card.Img variant="top" style={{ height: "250px" }} src={img} />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <Card.Img variant="top" style={{ height: "250px" }} src={img} />
+          </PhotoView>
+        </PhotoProvider>
+
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
@@ -29,7 +36,7 @@ const ServiceMenu = ({ service }) => {
           </div>
           <div className="me-3">
             <Link to="/services">
-              <button  className="btn btn-primary px-4">Show More</button>
+              <button className="btn btn-primary px-4">Show More</button>
             </Link>
           </div>
         </div>
