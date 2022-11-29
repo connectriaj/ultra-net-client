@@ -6,7 +6,7 @@ import { AuthContext } from "../../components/contexts/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,6 +34,15 @@ const Login = () => {
         setError(error.message);
       });
     form.reset();
+  };
+
+  const hanldeGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -73,7 +82,9 @@ const Login = () => {
       <div className="text-center mt-5">
         <p>Or Using Google</p>
         <Link to="">
-          <button className="btn btn-danger">Google Login</button>
+          <button onClick={hanldeGoogleSignIn} className="btn btn-danger">
+            Google Login
+          </button>
         </Link>
       </div>
     </div>
