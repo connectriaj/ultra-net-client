@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
-  const { _id, title, description, price } = useLoaderData();
+  const { _id, title, img, description, price } = useLoaderData();
 
   return (
     <div className="container">
@@ -15,6 +15,12 @@ const ServiceDetails = () => {
             Service Details
           </h2>
           <div className="p-3">
+                      <img
+                          className="mb-4"
+              style={({ height: "200px", width: '100%' })}
+              src={img}
+              alt="img"
+            />
             <p className="fw-bold">{title}</p>
             <p>
               <small>{description}</small>

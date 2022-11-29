@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import About from "../Pages/Home/About/About";
 import Home from "../Pages/Home/Home/Home";
+import Orders from "../Pages/Orders/Orders";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import Services from "../Pages/Services/Services";
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         element: <Checkout></Checkout>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/all-services/${params.id}`),
+      },
+      {
+        path: "/orders",
+        element: <Orders></Orders>,
       },
     ],
   },

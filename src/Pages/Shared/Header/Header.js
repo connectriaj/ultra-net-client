@@ -34,6 +34,14 @@ const Header = () => {
                 About Us
               </Link>
             </Nav>
+            <Nav className="me-auto">
+              <Link className="text-decoration-none fw-bold me-4" to="/login">
+                Login
+              </Link>
+              <Link className="text-decoration-none fw-bold me-4" to="/signup">
+                Sign Up
+              </Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
