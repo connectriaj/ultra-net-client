@@ -35,9 +35,9 @@ const Services = () => {
                     <h6>Rating: {service.rating}</h6>
                   </div>
                   <div className="me-3">
-                    <Link to="/login">
+                    <Link to={`/serviceDetails/${service._id}`}>
                       <button className="btn btn-primary px-4">
-                        Order Now
+                        Show Details
                       </button>
                     </Link>
                   </div>

@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import Checkout from "../Pages/Checkout/Checkout";
 import About from "../Pages/Home/About/About";
 import Home from "../Pages/Home/Home/Home";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
 import Services from "../Pages/Services/Services";
 
 const router = createBrowserRouter([
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-services/${params.id}`),
       },
       {
         path: "/signup",
@@ -39,8 +46,10 @@ const router = createBrowserRouter([
         element: <About></About>,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
         element: <Checkout></Checkout>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-services/${params.id}`),
       },
     ],
   },
