@@ -9,13 +9,13 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://ultra-net-server.vercel.app/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user?.email}`)
+    fetch(`https://ultra-net-server.vercel.app/orders?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user?.email]);

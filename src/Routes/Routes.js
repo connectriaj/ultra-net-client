@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-services/${params.id}`),
+          fetch(`https://ultra-net-server.vercel.app/all-services/${params.id}`),
       },
       {
         path: "/signup",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-services/${params.id}`),
+          fetch(`https://ultra-net-server.vercel.app/all-services/${params.id}`),
       },
       {
         path: "/orders",
