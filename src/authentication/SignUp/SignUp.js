@@ -28,7 +28,7 @@ const SignUp = () => {
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleLogin = () => {
-    googleLogin(googleProvider)
+    googleLogin()
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -84,7 +84,7 @@ const SignUp = () => {
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>
-        <Link to="" onClick={handleGoogleLogin}>
+        <Link to="/checkout" onClick={handleGoogleLogin}>
           <button className="btn btn-danger">Google Login</button>
         </Link>
       </div>

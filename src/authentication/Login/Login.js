@@ -81,7 +81,7 @@ const Login = () => {
       </Form>
       <div className="text-center mt-5">
         <p>Or Using Google</p>
-        <Link to="">
+        <Link to="/checkout">
           <button onClick={hanldeGoogleSignIn} className="btn btn-danger">
             Google Login
           </button>
